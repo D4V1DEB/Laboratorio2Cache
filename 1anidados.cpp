@@ -2,13 +2,13 @@
 #include<fstream>
 using namespace std;    
 
-vector<int> size = {100, 200, 500, 1000, 1500, 2000, 2500, 3000, 5000};
+vector<int> sizes = {100, 200, 500, 1000, 1500, 2000, 2500, 3000, 5000};
 
 int main() {
     ofstream archivo("tiempos.csv");
     archivo << "N, Tiempo1, Tiempo2" << endl;
 
-    for (int n : size) {
+    for (int n : sizes) {
         auto** A = new double*[n];
         for (int i = 0; i < n; i++) A[i] = new double[n];
         auto* x = new double[n];
