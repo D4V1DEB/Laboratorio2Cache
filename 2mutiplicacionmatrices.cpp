@@ -1,14 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> sizes = {100, 200, 500, 750, 1000, 1500, 2000};
+vector<int> sizes = {100, 250, 500, 1000, 2000, 3000, 4000, 5000};
 
-void multiplicarMatrices(double** A, double** B, double** C, int n) {
+void multiplicarMatrices(const vector<double>& A, const vector<double>& B, vector<double>& C, int n) {
     for (int i=0; i<n; i++) {
         for (int j=0; j<n; j++) {
-            C[i][j] = 0;
             for (int k=0; k<n; k++) {
-                C[i][j] += A[i][k] * B[k][j];
+                C[i*n + j] += A[i*n + k] * B[k*n + j];
             }
         }
     }
@@ -20,21 +19,14 @@ int main() {
     archivo << "N, Tiempo" << endl;
 
     for (int n: sizes) {
-        auto** A = new double*[n];
-        auto** B = new double*[n];
-        auto** C = new double*[n];
-
-        for (int i=0; i<n; i++) {
-            A[i] = new double[n];
-            B[i] = new double[n];
-            C[i] = new double[n];
-        }
+        vector<double> A(n * n);
+        vector<double> B(n * n);
+        vector<double> C(n * n, 0.0);
 
         for (int i=0; i<n; i++) {
             for (int j=0; j<n; j++) {
-                A[i][j] = rand() % 10;
-                B[i][j] = rand() % 10;
-                C[i][j] = 0;
+                A[i*n + j] = rand() % 10;
+                B[i*n + j] = rand() % 10;
             }
         }
 
@@ -44,15 +36,6 @@ int main() {
         double tiempo = chrono::duration<double>(fin - inicio).count();
 
         archivo << n << ", " << tiempo << endl;
-
-        for (int i=0; i<n; i++) {
-            delete[] A[i];
-            delete[] B[i];
-            delete[] C[i];
-        }
-        delete[] A;
-        delete[] B;
-        delete[] C;
     }
 
     return 0;
