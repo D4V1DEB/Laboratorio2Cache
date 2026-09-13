@@ -1,11 +1,10 @@
 #include<bits/stdc++.h>
-#include<fstream>
 using namespace std;    
 
 vector<int> sizes = {100, 200, 500, 1000, 1500, 2000, 2500, 3000, 5000};
 
 int main() {
-    ofstream archivo("tiempos.csv");
+    ofstream archivo("tiempospart1.csv");
     archivo << "N, Tiempo1, Tiempo2" << endl;
 
     for (int n : sizes) {
