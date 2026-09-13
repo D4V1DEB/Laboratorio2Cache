@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-datos = pd.read_csv("tiempos.csv")
+datos = pd.read_csv("tiempospart1.csv")
 datos.columns = datos.columns.str.strip()
 
 plt.plot(datos["N"],datos["Tiempo1"],marker="o",label="Recorrido por filas")
