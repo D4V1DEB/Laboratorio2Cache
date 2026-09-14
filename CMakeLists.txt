@@ -41,9 +41,8 @@ add_custom_command(
     COMMAND ${CMAKE_COMMAND} -E chdir ${PROJECT_DIR} ${Python3_EXECUTABLE} 2grafica.py
     COMMAND ${CMAKE_COMMAND} -E chdir ${PROJECT_DIR} ${Python3_EXECUTABLE} 3grafica.py
     COMMAND ${CMAKE_COMMAND} -E chdir ${PROJECT_DIR} ${Python3_EXECUTABLE} 4grafica.py
-    COMMAND ${CMAKE_COMMAND} -E chdir ${PROJECT_DIR} ${Python3_EXECUTABLE} 5grafica.py
     COMMAND ${CMAKE_COMMAND} -E touch ${PROJECT_DIR}/graficas/.graficas_generadas
-    DEPENDS ${RESULT_FILES} 1grafica.py 2grafica.py 3grafica.py 4grafica.py 5grafica.py
+    DEPENDS ${RESULT_FILES} 1grafica.py 2grafica.py 3grafica.py 4grafica.py
     VERBATIM)
 
 add_custom_target(laboratorio DEPENDS ${PROJECT_DIR}/graficas/.graficas_generadas)

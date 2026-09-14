@@ -3,13 +3,15 @@ import matplotlib.pyplot as plt
 
 clasica = pd.read_csv("tiempospart2.csv")
 bloques = pd.read_csv("tiempospart3.csv")
-
-bloque32 = bloques[bloques["Bloque"] == 32]
+clasica.columns = clasica.columns.str.strip()
+bloques.columns = bloques.columns.str.strip()
 
 plt.plot(clasica["N"], clasica["Tiempo"], marker="o", label="Clásica"
 )
 
-plt.plot(bloque32["N"],bloque32["Tiempo"],marker="o",label="Bloques 32")
+for bloque, datos_bloque in bloques.groupby("Bloque"):
+    plt.plot(datos_bloque["N"], datos_bloque["Tiempo"], marker="o",
+             label=f"Bloques {bloque}")
 
 plt.xlabel("Tamaño de matriz N")
 plt.ylabel("Tiempo (segundos)")
