@@ -20,4 +20,5 @@ plt.title("Comparación de algoritmos de multiplicación de matrices")
 plt.legend()
 plt.grid()
 
-plt.show()
+plt.tight_layout()
+plt.savefig("graficas/comparacion_algoritmos.png", dpi=180)

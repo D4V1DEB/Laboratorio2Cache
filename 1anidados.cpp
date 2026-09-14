@@ -1,13 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;    
 
-vector<int> sizes = {100, 200, 500, 1000, 1500, 2000, 2500, 3000, 5000};
+vector<int> sizes = {100, 200, 500, 750, 1000, 1500, 2000, 2500, 3000, 4000, 5000};
 
-int main() {
+int main(int argc, char** argv) {
+    int max_n = argc > 1 ? stoi(argv[1]) : sizes.back();
     ofstream archivo("tiempospart1.csv");
     archivo << "N, Tiempo1, Tiempo2" << endl;
 
     for (int n : sizes) {
+        if (n > max_n) break;
         vector<double> A(n * n);
         vector<double> x(n);
         vector<double> y(n, 0.0);

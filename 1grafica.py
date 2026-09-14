@@ -13,4 +13,5 @@ plt.title("Comparación de bucles anidados")
 plt.legend()
 plt.grid()
 
-plt.show()
+plt.tight_layout()
+plt.savefig("graficas/bucles_anidados.png", dpi=180)

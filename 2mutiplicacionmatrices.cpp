@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-vector<int> sizes = {100, 250, 500, 1000, 2000, 3000, 4000, 5000};
+vector<int> sizes = {100, 250, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500};
 
 void multiplicarMatrices(const vector<double>& A, const vector<double>& B, vector<double>& C, int n) {
     for (int i=0; i<n; i++) {
@@ -13,12 +13,14 @@ void multiplicarMatrices(const vector<double>& A, const vector<double>& B, vecto
     }
 }
 
-int main() {
+int main(int argc, char** argv) {
+    int max_n = argc > 1 ? stoi(argv[1]) : sizes.back();
 
     ofstream archivo("tiempospart2.csv");
     archivo << "N, Tiempo" << endl;
 
     for (int n: sizes) {
+        if (n > max_n) break;
         vector<double> A(n * n);
         vector<double> B(n * n);
         vector<double> C(n * n, 0.0);
@@ -34,6 +36,9 @@ int main() {
         multiplicarMatrices(A, B, C, n);
         auto fin = chrono::high_resolution_clock::now();
         double tiempo = chrono::duration<double>(fin - inicio).count();
+
+        volatile double verificacion = C[0] + C[n * n - 1];
+        (void)verificacion;
 
         archivo << n << ", " << tiempo << endl;
     }

@@ -11,4 +11,5 @@ plt.ylabel("Tiempo (segundos)")
 plt.title("Multiplicación clásica de matrices")
 
 plt.grid()
-plt.show()
+plt.tight_layout()
+plt.savefig("graficas/multiplicacion_clasica.png", dpi=180)

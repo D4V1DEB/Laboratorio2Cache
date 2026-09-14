@@ -18,4 +18,5 @@ plt.title("Multiplicación clásica vs. por bloques")
 plt.legend()
 plt.grid()
 
-plt.show()
+plt.tight_layout()
+plt.savefig("graficas/clasica_vs_bloques.png", dpi=180)

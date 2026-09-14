@@ -18,4 +18,5 @@ plt.title("Multiplicación clásica vs. por bloques vs. Strassen")
 plt.legend()
 plt.grid()
 
-plt.show()
+plt.tight_layout()
+plt.savefig("graficas/clasica_bloques_strassen.png", dpi=180)
